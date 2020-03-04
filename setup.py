@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='gym_anytrading',
-    version='1.0.1',
+    name='gym_forextrading',
+    version='1.0.0',
     packages=find_packages(),
 
     install_requires=[
@@ -13,6 +13,6 @@ setup(
     ],
 
     package_data={
-        'gym_anytrading': ['datasets/data/*']
+        'gym_forextrading': ['datasets/data/*']
     }
 )

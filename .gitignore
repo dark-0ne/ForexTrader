@@ -1,0 +1,12 @@
+.idea/
+.vscode/
+*.ipynb_checkpoints/
+*.pyc
+venv*/
+
+dist/
+*.egg-info/
+build/
+gym_anytrading.egg-info/
+TestStuff/
+*__pycache__

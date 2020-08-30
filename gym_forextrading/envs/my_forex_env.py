@@ -15,7 +15,8 @@ class MyForexEnv(TradingEnv):
         self.frame_bound = frame_bound
         self.unit_side = unit_side.lower()
         super().__init__(df, window_size)
-
+        
+        self.cumulative_reward = 0
         self.trade_fee = trade_fee # unit
 
 
@@ -72,7 +73,7 @@ class MyForexEnv(TradingEnv):
 
     def _calculate_reward(self, action):
         step_reward = 0.0  # pip
-
+    
         trade = False
         if ((action == Actions.Buy.value and self._position == Positions.Short) or
             (action == Actions.Sell.value and self._position == Positions.Long)):
@@ -87,8 +88,9 @@ class MyForexEnv(TradingEnv):
                 step_reward += -price_diff * 10000.0
             elif self._position == Positions.Long:
                 step_reward += price_diff * 10000.0
-
-        return step_reward
+                
+        self.cumulative_reward += step_reward
+        return self.cumulative_reward
 
 
     def _update_profit(self, action):

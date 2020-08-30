@@ -16,7 +16,6 @@ class MyForexEnv(TradingEnv):
         self.unit_side = unit_side.lower()
         super().__init__(df, window_size)
         
-        self.cumulative_reward = 0
         self.trade_fee = trade_fee # unit
 
 

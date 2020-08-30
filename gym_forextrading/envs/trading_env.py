@@ -31,6 +31,7 @@ class TradingEnv(gym.Env):
         self.window_size = window_size
         self.prices, self.signal_features = self._process_data()
         self.shape = (window_size, self.signal_features.shape[1])
+        self._cumulative_reward = 0
 
         # spaces
         self.action_space = spaces.Discrete(len(Actions))
@@ -63,6 +64,7 @@ class TradingEnv(gym.Env):
         self._total_reward = 0.
         self._total_profit = 1.  # unit
         self._first_rendering = True
+        self._cumulative_reward = 0
         return self._get_observation()
 
 

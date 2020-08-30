@@ -88,8 +88,8 @@ class MyForexEnv(TradingEnv):
             elif self._position == Positions.Long:
                 step_reward += price_diff * 10000.0
                 
-        self.cumulative_reward += step_reward
-        return self.cumulative_reward
+        self._cumulative_reward += step_reward
+        return self._cumulative_reward
 
 
     def _update_profit(self, action):
